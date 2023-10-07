@@ -4,9 +4,7 @@
      $id = $_GET['id'];
 
      $data = mysqli_query($coon, "SELECT * FROM mahasiswa WHERE id = $id");
-
      $row = mysqli_fetch_assoc($data);
-
      
      if(isset($_POST['submit'])){
 
