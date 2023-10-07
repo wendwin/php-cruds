@@ -54,7 +54,6 @@
                     <div class="mb-3">
                         <label for="jurusan" class="form-label">Jurusan</label>
                         <select class="form-select" aria-label="Default select example" id="jurusan" name="jurusan" required>
-                            <!-- <option selected>Options</option> -->
                             <option value="Teknik Informatika">Teknik Informatika</option>
                             <option value="Teknologi Informasi">Teknologi Informasi</option>
                             <option value="Sistem Informasi">Sistem Informasi</option>
