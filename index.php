@@ -1,6 +1,11 @@
 <?php 
     $coon = mysqli_connect('localhost', 'root', '', 'belajarphp');
     $data = mysqli_query($coon, 'SELECT * FROM mahasiswa');
+
+    if(isset($_POST['cari'])){
+        $keyword = $_POST['keyword'];
+        $data = mysqli_query($coon, "SELECT * FROM mahasiswa WHERE nama LIKE '%$keyword%' OR nim LIKE '%$keyword%' OR email LIKE '%$keyword%' OR jurusan LIKE '%$keyword%'");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +22,13 @@
 
         <a class="btn btn-primary mb-4" href="tambah.php" role="button">Tambah Data</a>
 
+        <form action="" method="post">
+            <div class="input-group mb-3 col-lg-*">
+                <input type="text" class="form-control" name="keyword" placeholder="Masukan nama/nim/jurusan" autocomplete="off">
+                <button class="btn btn-outline-secondary" type="submit" name="cari">Search</button>
+            </div>
+        </form>
+
         <table  class="table table-striped" border="1" cellspacing ="0" cellpadding="10">
             <thead>
                 <tr>
@@ -30,7 +42,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $i = 0 ?>
+                <?php $i = 1 ?>
                 <?php while( $row = mysqli_fetch_assoc($data)) : ?>
                 <tr>
                     <td><?= $i; ?></td>
